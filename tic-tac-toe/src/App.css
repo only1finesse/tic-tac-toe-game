@@ -73,9 +73,44 @@ div.square{
   width: 5.8rem;
 }
 
-div.square > span {
-  color: #2cbbb0;
+div.winningsquare{
+  display: flex;
+  background-color: #2cbbb0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  font-family: 'Fredoka One', cursive;
+  font-size: 3.5rem;
+  font-weight:900 ;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+  padding: 0rem 1.7rem;
+  padding-bottom: 0px;
+  margin: 6px;
+  height: 5.7rem;
+  box-shadow: 1px 7px #0e141a;
+  flex-grow: 0;
+  flex-shrink: 3;
+  width: 5.8rem;
 }
+
+/* div.square > span {
+  color: #2cbbb0;
+} */
+
+div.square > .winner {
+  background-color: #2cbbb0;
+}
+
+div.square:hover {
+  background-color: #1420253a;
+  transition: all 0.3s ease-out
+}
+
+/* div.square >span :hover {
+  background-color:#142025;
+  transition: all 0.3s ease-out
+} */
 
 div.infoboard {
   display: flex;

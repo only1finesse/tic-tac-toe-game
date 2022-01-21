@@ -1,21 +1,35 @@
-function InfoBoard() {
+import React, { useState, useEffect } from 'react';
+
+function InfoBoard(props) {
+
     return (
-        <div className="infoboard" >
+        <div className={"infoboard"} {...props} >
             <div className="details">
                 <div className="info playericons">
                     <span className="x">X</span>
                     <span className="o">O</span>
                 </div>
-                
+
                 <div className="info">
                     <div className="players-turn">
-                    <span className="turn">O</span><p>TURN</p>
+                        {props.player === 'x' ?
+                            (<span className="turn" style={{ color: '#2cbbb0' }}>
+                                {props.player}
+                            </span>) : 
+                            (props.player === 'o' ? (<span className="turn" style={{ color: '#eda22c' }}>
+                                {props.player}
+                            </span>) :
+                            (<span className="turn">
+                            {props.player}
+                        </span>))
+                        }
+                            <p>TURN</p>
                     </div>
                 </div>
 
                 <div className="info">
                     <div className="redo">
-                    <button><i class="fas fa-redo"></i></button>
+                        <button onClick={props.reset}><i className="fas fa-redo"></i></button>
                     </div>
                 </div>
             </div>

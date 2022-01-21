@@ -1,9 +1,30 @@
+
 function Square(props) {
     return (
-        <div className={'square'} {...props}>
-            <span className="player" ><p>{props.x ? 'x' : (props.o ? 'o': '')}</p> </span>
+        <div className={props.iswinning === 'true' ? 'winningsquare' : 'square' } {...props}>
+            {
+                props.iswinning === 'false' && (
+                    <span className="player" >
+                        <p style={props.x ? { color: '#2cbbb0' } : { color: '#e6a641' }}>
+                            {props.x ? 'x' : (props.o ? 'o' : '')}
+                        </p>
+                    </span>
+                )
+            }
+
+            {
+                props.iswinning === 'true' && (
+                    <span className="player" >
+                        <p style={props.x ? { color: '#192a34' } : { color: '#eda22c' }}>
+                            {props.x ? 'x' : (props.o ? 'o' : '')}
+                        </p>
+                    </span>
+                )
+            }
         </div>
     );
 }
 
-export default Square
+export default Square;
+
+{/* <p style={{fontSize: '10px'}}>{props.iswinning}</p> */ }

@@ -13,10 +13,10 @@ function InfoBoard(props) {
                 <div className="info">
                     <div className="players-turn">
                         {props.player === 'x' ?
-                            (<span className="turn" style={{ color: '#2cbbb0' }}>
+                            (<span className="turn" style={{ color: '#2cbbaf8c' }}>
                                 {props.player}
                             </span>) : 
-                            (props.player === 'o' ? (<span className="turn" style={{ color: '#eda22c' }}>
+                            (props.player === 'o' ? (<span className="turn" style={{ color: '#e6a74173' }}>
                                 {props.player}
                             </span>) :
                             (<span className="turn">

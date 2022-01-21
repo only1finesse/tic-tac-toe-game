@@ -15,7 +15,7 @@ function Square(props) {
             {
                 props.iswinning === 'true' && (
                     <span className="player" >
-                        <p style={props.x ? { color: '#192a34' } : { color: '#eda22c' }}>
+                        <p style={props.x ? { color: '#192a34' } : { color: '#e9950f' }}>
                             {props.x ? 'x' : (props.o ? 'o' : '')}
                         </p>
                     </span>

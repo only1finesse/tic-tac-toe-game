@@ -30,7 +30,7 @@ function App() {
     setCurrPlayer('P1')
     setWinningSquares([])
   }
-
+  
   const emptyIndexes = squares
     .map((square, index) => square === undefined ? index : undefined)
     .filter((val) => val !== undefined)
@@ -38,14 +38,14 @@ function App() {
   const getTies = () => {
     if (emptyIndexes.length < 1) {
       TIES_COUNTER += 1
-      alert('Its a Tie!')
       setTimeout(() => {
+        alert('Its a Tie!')
         reset()
-      }, 400);
+      }, 100);
       return true
     }
   }
-
+  // Compare square lines with winning lines`
   const linesThatAre = (a, b, c) => {
     return lines.filter(winIndexes => {
       const winValues = winIndexes.map(index => squares[index]);
@@ -81,7 +81,7 @@ function App() {
       return setTimeout(() => {
         alert(`${winner.toUpperCase()} wins!`)
         reset()
-      }, 300);
+      }, 200);
     }
 
     // HANDLE COMPUTER GAMEPLAY 
@@ -99,13 +99,13 @@ function App() {
         const smartRows = linesThatAre('o', undefined, undefined)
         if (winningRows.length > 0) {
           let winPosition = winningRows[0].filter(index => squares[index] === undefined)[0]
-          setTimeout(() => { computerChoice(winPosition) }, 700);
+          setTimeout(() => { computerChoice(winPosition) }, 200);
         } else if (blockRows.length > 0) {
           let blockPosition = blockRows[0].filter(index => squares[index] === undefined)[0]
-          setTimeout(() => { computerChoice(blockPosition) }, 700);
+          setTimeout(() => { computerChoice(blockPosition) }, 400);
         } else if (smartRows.length > 0) {
           let smartPosition = smartRows[0].filter(index => squares[index] === undefined)[0]
-          setTimeout(() => { computerChoice(smartPosition) }, 700);
+          setTimeout(() => { computerChoice(smartPosition) }, 600);
         } else {
 
         // let computerWon = linesThatAre('o', 'o', 'o').length>0
@@ -113,16 +113,16 @@ function App() {
         const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)]
 
 
-        setTimeout(() => { computerChoice(randomIndex) }, 700);
+        setTimeout(() => { computerChoice(randomIndex) }, 400);
       }
     }
   }
   }, [currPlayer])
 
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  })
+  // })
 
 
 

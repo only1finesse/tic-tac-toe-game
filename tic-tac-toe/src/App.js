@@ -193,11 +193,11 @@ return (
         ocount={O_COUNTER}
         tiescount={TIES_COUNTER} />
     </Board>
-    {!!winner && winner === 'x' && (
+    {/* {!!winner && winner === 'x' && (
       <div>
         X Wins!
       </div>
-    )}
+    )} */}
   </main>
 );
 }

@@ -86,7 +86,6 @@ function App() {
 
     // HANDLE COMPUTER GAMEPLAY 
     const computerChoice = (randomIndex) => {
-      // console.log(emptyIndexes)
       let newSquares = squares;
       newSquares[randomIndex] = 'o';
       setSquares([...newSquares])
@@ -120,9 +119,6 @@ function App() {
   }, [currPlayer])
 
 
-  // useEffect(() => {
-    
-  // })
 
 
 
@@ -138,13 +134,6 @@ const handleSquareClick = (index) => {
   else {
 
   }
-  // else if (isPlayerTwoTurn && !isPlayerTurn) {
-  //   if (newSquares[index] !== ('x') && newSquares[index] === undefined) {
-  //     newSquares[index] = 'o';
-  //     await setSquares([...newSquares])
-  //     setCurrPlayer('x')
-  //   }
-  // }
   return squares[index]
 }
 
@@ -193,11 +182,11 @@ return (
         ocount={O_COUNTER}
         tiescount={TIES_COUNTER} />
     </Board>
-    {!!winner && winner === 'x' && (
+    {/* {!!winner && winner === 'x' && (
       <div>
         X Wins!
       </div>
-    )}
+    )} */}
   </main>
 );
 }

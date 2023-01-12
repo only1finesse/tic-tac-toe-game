@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function InfoBoard(props) {
 
@@ -15,15 +15,15 @@ function InfoBoard(props) {
                         {props.player === 'x' ?
                             (<span className="turn" style={{ color: '#2cbbaf8c' }}>
                                 {props.player}
-                            </span>) : 
+                            </span>) :
                             (props.player === 'o' ? (<span className="turn" style={{ color: '#e6a74173' }}>
                                 {props.player}
                             </span>) :
-                            (<span className="turn">
-                            {props.player}
-                        </span>))
+                                (<span className="turn">
+                                    {props.player}
+                                </span>))
                         }
-                            <p>TURN</p>
+                        <p>TURN</p>
                     </div>
                 </div>
 
@@ -33,6 +33,7 @@ function InfoBoard(props) {
                     </div>
                 </div>
             </div>
+
         </div >
     )
 }

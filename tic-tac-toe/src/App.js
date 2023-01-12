@@ -5,7 +5,7 @@ import InfoBoard from './InfoBoard';
 import StatusBoard from './StatusBoard';
 import { useEffect, useState } from 'react';
 
-const defaultSquares = () => Array.apply(null, Array(9)).map(function () { })
+const defaultSquares = () => Array.apply(null, Array(9));
 // const defaultSquares = () => Array.apply(null, Array(9)).map(function (x, i) {})
 
 const lines = [
@@ -30,7 +30,7 @@ function App() {
     setCurrPlayer('P1')
     setWinningSquares([])
   }
-  
+
   const emptyIndexes = squares
     .map((square, index) => square === undefined ? index : undefined)
     .filter((val) => val !== undefined)
@@ -107,88 +107,90 @@ function App() {
           setTimeout(() => { computerChoice(smartPosition) }, 600);
         } else {
 
-        // let computerWon = linesThatAre('o', 'o', 'o').length>0
+          // let computerWon = linesThatAre('o', 'o', 'o').length>0
 
-        const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)]
+          const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)]
 
 
-        setTimeout(() => { computerChoice(randomIndex) }, 400);
+          setTimeout(() => { computerChoice(randomIndex) }, 400);
+        }
       }
     }
-  }
+    // eslint-disable-next-line
   }, [currPlayer])
 
 
 
 
 
-const handleSquareClick = (index) => {
-  let newSquares = squares;
-  if (isPlayerTurn) {
-    if (newSquares[index] !== ('o' || 'x') && newSquares[index] === undefined) {
-      newSquares[index] = 'x';
-      setSquares([...newSquares])
-      setCurrPlayer('o')
+  const handleSquareClick = (index) => {
+    let newSquares = squares;
+    if (isPlayerTurn) {
+      if (newSquares[index] !== ('o' || 'x') && newSquares[index] === undefined) {
+        newSquares[index] = 'x';
+        setSquares([...newSquares])
+        setCurrPlayer('o')
+      }
     }
+    else {
+
+    }
+    return squares[index]
   }
-  else {
 
-  }
-  return squares[index]
-}
+  const isPlayerTurn = squares.filter(square => square !== undefined).length % 2 === 0
 
-const isPlayerTurn = squares.filter(square => square !== undefined).length % 2 === 0
+  // const isPlayerTwoTurn = squares.filter(square => square !== null).length % 2 === 1;
 
-const isPlayerTwoTurn = squares.filter(square => square !== null).length % 2 === 1;
-
-const winStyles = {
-  backgroundColor: '#2cbbb0',
-  color: '#0e141a'
-}
+  // const winStyles = {
+  //   backgroundColor: '#2cbbb0',
+  //   color: '#0e141a'
+  // }
 
 
-// useEffect(() => {
-//   const isPlayerTwoTurn = squares.filter(square => square !== null).length % 2 === 1; 
-//   if (isPlayerTwoTurn & !isPlayerTurn ){
-//     let newSquares = squares
-//     newSquares[index] = 'o'
-//     setSquares([...newSquares])
-//   }
-// }, [squares])
-// 
+  // useEffect(() => {
+  //   const isPlayerTwoTurn = squares.filter(square => square !== null).length % 2 === 1; 
+  //   if (isPlayerTwoTurn & !isPlayerTurn ){
+  //     let newSquares = squares
+  //     newSquares[index] = 'o'
+  //     setSquares([...newSquares])
+  //   }
+  // }, [squares])
+  // 
 
 
-return (
+  return (
 
-  <main>
-    <Board>
-      <InfoBoard
-        player={currPlayer}
-        reset={reset}
-      />
-      {squares.map((square, index) =>
-        <Square
-          key={index}
-          x={square === 'x' ? 1 : 0}
-          o={square === 'o' ? 1 : 0}
-          onClick={() => handleSquareClick(index)}
-          iswinning={winningSquares.includes(index) ? 
-          'true' : 'false'}
+    <main>
+      <Board>
+        <div>{winner} is winning!</div>
+        <InfoBoard
+          player={currPlayer}
+          reset={reset}
         />
-        
-      )}
-      <StatusBoard
-        xcount={X_COUNTER}
-        ocount={O_COUNTER}
-        tiescount={TIES_COUNTER} />
-    </Board>
-    {/* {!!winner && winner === 'x' && (
+        {squares.map((square, index) =>
+          <Square
+            key={index}
+            x={square === 'x' ? 1 : 0}
+            o={square === 'o' ? 1 : 0}
+            onClick={() => handleSquareClick(index)}
+            iswinning={winningSquares.includes(index) ?
+              'true' : 'false'}
+          />
+
+        )}
+        <StatusBoard
+          xcount={X_COUNTER}
+          ocount={O_COUNTER}
+          tiescount={TIES_COUNTER} />
+      </Board>
+      {/* {!!winner && winner === 'x' && (
       <div>
         X Wins!
       </div>
     )} */}
-  </main>
-);
+    </main>
+  );
 }
 
 export default App;

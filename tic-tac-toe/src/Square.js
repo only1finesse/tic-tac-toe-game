@@ -1,7 +1,7 @@
 
 function Square(props) {
     return (
-        <div className={props.iswinning === 'true' ? 'winningsquare' : 'square' } {...props}>
+        <div className={props.iswinning === 'true' ? 'winningsquare' : 'square'} {...props}>
             {
                 props.iswinning === 'false' && (
                     <span className="player" >
@@ -24,7 +24,6 @@ function Square(props) {
         </div>
     );
 }
+/* <p style={{fontSize: '10px'}}>{props.iswinning}</p> */
 
 export default Square;
-
-{/* <p style={{fontSize: '10px'}}>{props.iswinning}</p> */ }
